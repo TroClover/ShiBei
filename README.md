@@ -1,4 +1,4 @@
-# ShiBei (石碑) — 多 Agent 文档理解与知识库系统
+# ShiBei (拾贝) — 多 Agent 文档理解与知识库系统
 
 基于 **LangGraph** 编排的 Multi-Agent RAG 系统，支持语义检索、混合检索、自动评估与自我反思机制。
 
