@@ -45,40 +45,48 @@ Agent 层:
 
 ```bash
 # 1. 克隆项目
+git clone https://github.com/TroClover/ShiBei.git
 cd ShiBei
 
-# 2. 安装依赖
+# 2. 创建虚拟环境（可选）
+conda create -n shibei python=3.11 -y && conda activate shibei
+
+# 3. 安装依赖
 pip install -r requirements.txt
 ```
 
 ## 配置
 
-通过环境变量配置：
+复制配置模板并填入你的 API Key：
+
+```bash
+cp .env.example .env
+```
+
+编辑 `.env` 文件：
 
 ```bash
 # Provider: deepseek 或 ollama
-export PROVIDER=deepseek
+PROVIDER=deepseek
 
-# DeepSeek 配置 (PROVIDER=deepseek)
-export API_KEY=sk-your-deepseek-key
-export CHAT_MODEL=deepseek-chat
-export EMBEDDING_MODEL=text-embedding-3-small
+# DeepSeek 配置
+API_KEY=sk-your-deepseek-key
+CHAT_MODEL=deepseek-v4-flash
 
-# Ollama 配置 (PROVIDER=ollama)
-# 先拉取模型: ollama pull qwen2.5 && ollama pull nomic-embed-text
-export PROVIDER=ollama
-export CHAT_MODEL=qwen2.5
-export EMBEDDING_MODEL=nomic-embed-text
-# API_KEY 可留空
+# 嵌入配置 (ollama / openai)
+EMBEDDING_PROVIDER=ollama
+EMBEDDING_MODEL=nomic-embed-text
+
+# 如使用 Ollama 对话模型
+# PROVIDER=ollama
+# CHAT_MODEL=qwen2.5
 
 # 可选 RAG 参数
-export CHUNK_SIZE=1500
-export TOP_K=10
-export MAX_REFLECTIONS=2
-export QUALITY_THRESHOLD=0.75
+# CHUNK_SIZE=1500
+# TOP_K=10
+# MAX_REFLECTIONS=2
+# QUALITY_THRESHOLD=0.75
 ```
-
-或创建 `.env` 文件在项目根目录。
 
 ## 使用方式
 
@@ -95,6 +103,7 @@ python app.py
 ### Web 界面
 
 ```bash
+# Windows 用户可双击 start_web.bat 一键启动
 streamlit run web_app.py
 ```
 
