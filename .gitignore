@@ -1,0 +1,38 @@
+# 敏感配置
+.env
+*.key
+*secret*
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# 虚拟环境
+venv/
+.venv/
+env/
+shibei/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# 临时文件
+temp.pdf
+*.tmp
+tmp/
+
+# FAISS 索引 (运行时生成)
+*.faiss
+*.pkl
+index/
+
+# OS
+.DS_Store
+Thumbs.db
